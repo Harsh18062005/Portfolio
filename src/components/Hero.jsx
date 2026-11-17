@@ -207,18 +207,16 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
 
           </div>
 
-          {/* Right Column: Hero Visual / Profile Photo (5 cols) */}
+          {/* Right Column: Hero Visual / Circular Profile Photo (5 cols) */}
           <div className="lg:col-span-5 flex justify-center items-center">
-            <div className="relative group max-w-sm sm:max-w-md w-full">
+            <div className="relative group max-w-sm sm:max-w-md w-full flex flex-col items-center">
               
-              {/* Outer decorative glowing ring */}
-              <div className="absolute -inset-1.5 bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+              {/* Outer decorative glowing halo */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition duration-1000 group-hover:duration-200 pointer-events-none" />
               
-              {/* Card Container */}
-              <div className="relative rounded-2xl bg-slate-950 p-2 border border-slate-800/80 shadow-2xl overflow-hidden">
-                
-                {/* Photo with sleek overlay */}
-                <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-slate-900">
+              {/* Circular Avatar Container */}
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-600 shadow-2xl shadow-indigo-600/30 transition-transform duration-500 group-hover:scale-[1.02]">
+                <div className="w-full h-full rounded-full overflow-hidden bg-slate-950 border-4 border-slate-950 relative">
                   <img
                     src={portfolioData.personal.profilePic}
                     alt="Harsh Juneja"
@@ -228,49 +226,40 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
                       e.target.src = portfolioData.personal.linkedinPic;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
-
-                  {/* Corner Badge */}
-                  <div className="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-700/60 rounded-lg px-2.5 py-1 flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 shadow-md">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 radar-dot" />
-                    <span>Verified Dev</span>
-                  </div>
-
-                  {/* Bottom overlay card info */}
-                  <div className="absolute bottom-3 left-3 right-3 bg-slate-950/85 backdrop-blur-md border border-slate-800/90 rounded-xl p-3 shadow-lg">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="text-white font-bold text-sm tracking-tight">Harsh Juneja</h4>
-                        <p className="text-[11px] text-slate-400">B.Tech CSE @ ABES Ghaziabad</p>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-950/80 border border-indigo-700/50 text-indigo-300 font-semibold">
-                          CGPA 7.2
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="mt-2.5 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
-                      <span className="flex items-center gap-1">
-                        <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-                        <span>Cisco Certified</span>
-                      </span>
-                      <span className="font-mono text-slate-400">IBM SkillsBuild Intern</span>
-                    </div>
-                  </div>
+                  {/* Inner subtle rim */}
+                  <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/10 pointer-events-none" />
                 </div>
 
+                {/* Floating Badge 1: Top-Right (Verified Dev) */}
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-3 bg-slate-950/90 backdrop-blur-md border border-slate-700/80 rounded-full px-3 py-1 flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 shadow-lg shadow-black/50">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 radar-dot" />
+                  <span>Verified Dev</span>
+                </div>
+
+                {/* Floating Badge 2: Bottom-Right (Cisco Certified) */}
+                <div className="absolute bottom-2 right-1 sm:bottom-4 sm:right-2 bg-slate-950/90 backdrop-blur-md border border-slate-700/80 rounded-xl px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-slate-200 shadow-lg shadow-black/50">
+                  <ShieldCheck className="w-4 h-4 text-blue-400" />
+                  <span className="text-[11px] font-mono">Cisco Certified</span>
+                </div>
+
+                {/* Floating Badge 3: Bottom-Left (GitHub Repos) */}
+                <div className="hidden sm:flex absolute bottom-4 -left-6 bg-slate-950/95 backdrop-blur-md border border-slate-700/80 rounded-xl p-2.5 shadow-xl items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 font-mono text-xs font-bold">
+                    8+
+                  </div>
+                  <div className="text-left">
+                    <p className="text-xs font-bold text-white leading-tight">GitHub Repos</p>
+                    <p className="text-[10px] text-slate-400">Web, CyberSec & DSA</p>
+                  </div>
+                </div>
               </div>
 
-              {/* Floating Quick Feature Card */}
-              <div className="hidden sm:flex absolute -bottom-5 -left-6 bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-xl p-3 shadow-xl items-center gap-3 animate-bounce-subtle">
-                <div className="w-9 h-9 rounded-lg bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-mono text-xs font-bold">
-                  8+
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-white">GitHub Repositories</p>
-                  <p className="text-[10px] text-slate-400">Web, CyberSec, Networks & DSA</p>
-                </div>
+              {/* Bottom Candidate Bar */}
+              <div className="mt-6 w-full max-w-xs bg-slate-900/85 backdrop-blur-md border border-slate-800 rounded-xl py-2 px-3.5 flex items-center justify-between text-xs text-slate-300 shadow-md">
+                <span className="font-semibold text-white">Harsh Juneja</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800">
+                  ABES CSE • CGPA 7.2
+                </span>
               </div>
 
             </div>

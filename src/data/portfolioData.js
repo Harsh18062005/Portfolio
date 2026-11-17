@@ -8,7 +8,7 @@ export const portfolioData = {
     email: "junejaharsh1806@gmail.com",
     phone: "+91 6306092954",
     bio: "Passionate B.Tech Computer Science student at ABES Engineering College with a strong foundation in Data Structures & Algorithms, Full-Stack Web Development, Cybersecurity, and Computer Networks. Creator of explainable threat detection systems and high-performance web applications deployed on Vercel and Streamlit.",
-    profilePic: "/professional_pic.jpeg",
+    profilePic: "/profile_photo.png",
     linkedinPic: "/Linkedin_pic.png",
     resumeUrl: "/Harsh_Juneja_Resume.pdf",
     college: "ABES Engineering College",
